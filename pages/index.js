@@ -30,29 +30,27 @@ import {
   IconButton,
   Alert
 } from '@mui/material';
-import { 
-  CardGiftcard, 
-  Celebration, 
-  EmojiEvents,
-  Favorite,
-  Timer,
-  Refresh,
-  CameraAlt,
-  Verified,
-  Camera,
-  PhotoCamera,
-  FavoriteBorder,
-  Instagram,
-  AccountCircle,
-  Check,
-  Close,
-  StarBorder,
-  Star,
-  ThumbUp,
-  People,
-  ArrowForward,
-  Info
-} from '@mui/icons-material';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import TimerIcon from '@mui/icons-material/Timer';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import CameraIcon from '@mui/icons-material/Camera';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import PeopleIcon from '@mui/icons-material/People';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import InfoIcon from '@mui/icons-material/Info';
 
 // Importação dinâmica do confetti para evitar problemas de SSR
 const Confetti = dynamic(() => import('react-confetti'), {
@@ -322,12 +320,12 @@ export default function Home() {
   const getParticipantIcon = (name) => {
     const nameHash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const icons = [
-      <CameraAlt />, 
-      <FavoriteBorder />, 
-      <PhotoCamera />, 
-      <Verified />, 
-      <Instagram />,
-      <AccountCircle />
+      <CameraAltIcon />, 
+      <FavoriteBorderIcon />, 
+      <PhotoCameraIcon />, 
+      <VerifiedIcon />, 
+      <InstagramIcon />,
+      <AccountCircleIcon />
     ];
     return icons[nameHash % icons.length];
   };
@@ -374,7 +372,7 @@ export default function Home() {
             color: 'white'
           }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Instagram /> Verificação de Requisitos
+              <InstagramIcon /> Verificação de Requisitos
             </Box>
           </DialogTitle>
           <DialogContent sx={{ pt: 2, mt: 2 }}>
@@ -391,7 +389,7 @@ export default function Home() {
             )}
             
             <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <AccountCircle /> Participante: {ganhador}
+              <AccountCircleIcon /> Participante: {ganhador}
             </Typography>
             
             <Typography variant="body2" color="text.secondary" gutterBottom sx={{ mb: 3 }}>
@@ -415,7 +413,7 @@ export default function Home() {
                       </Typography>
                       <Tooltip title="Verifique na página do Instagram se o participante segue a loja">
                         <IconButton size="small" sx={{ ml: 1 }}>
-                          <Info fontSize="small" />
+                          <InfoIcon fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     </Box>
@@ -439,7 +437,7 @@ export default function Home() {
                       </Typography>
                       <Tooltip title="Verifique nas curtidas do post se o nome do participante aparece">
                         <IconButton size="small" sx={{ ml: 1 }}>
-                          <Info fontSize="small" />
+                          <InfoIcon fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     </Box>
@@ -463,7 +461,7 @@ export default function Home() {
                       </Typography>
                       <Tooltip title="Verifique nos comentários se o participante marcou ao menos 3 amigos">
                         <IconButton size="small" sx={{ ml: 1 }}>
-                          <Info fontSize="small" />
+                          <InfoIcon fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     </Box>
@@ -480,7 +478,7 @@ export default function Home() {
               onClick={validarGanhador} 
               variant="contained" 
               color="primary"
-              startIcon={validacaoConcluida && !ganhadorValidado ? <Refresh /> : <Check />}
+              startIcon={validacaoConcluida && !ganhadorValidado ? <RefreshIcon /> : <CheckIcon />}
             >
               {validacaoConcluida && !ganhadorValidado ? "Tentar Novamente" : "Confirmar Verificação"}
             </Button>
@@ -560,7 +558,7 @@ export default function Home() {
                   gap: 1,
                 }}
               >
-                <Favorite sx={{ fontSize: 40 }} /> Sorteio Dia das Mães
+                <FavoriteIcon sx={{ fontSize: 40 }} /> Sorteio Dia das Mães
               </Typography>
               <Typography
                 variant="subtitle1"
@@ -576,7 +574,7 @@ export default function Home() {
               
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 2 }}>
                 <Chip 
-                  icon={<Instagram />}
+                  icon={<InstagramIcon />}
                   label={lojaInfo.nome} 
                   color="default"
                   sx={{ 
@@ -597,7 +595,7 @@ export default function Home() {
                   {lojaInfo.regras.map((regra, idx) => (
                     <Chip 
                       key={idx}
-                      icon={idx === 0 ? <Star fontSize="small" /> : idx === 1 ? <ThumbUp fontSize="small" /> : <People fontSize="small" />}
+                      icon={idx === 0 ? <StarIcon fontSize="small" /> : idx === 1 ? <ThumbUpIcon fontSize="small" /> : <PeopleIcon fontSize="small" />}
                       label={regra} 
                       variant="outlined"
                       size="small"
@@ -616,7 +614,7 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
               >
                 <Chip
-                  icon={<CardGiftcard />}
+                  icon={<CardGiftcardIcon />}
                   label="Prêmio Especial"
                   sx={{
                     background: 'linear-gradient(to right, #FFD700, #FFA500)',
@@ -655,7 +653,7 @@ export default function Home() {
                 }}
               >
                 <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Instagram /> Participantes: {participantes.length}
+                  <InstagramIcon /> Participantes: {participantes.length}
                 </Typography>
               </Box>
 
@@ -760,7 +758,7 @@ export default function Home() {
                                 </Typography>
                                 
                                 {isVerified && (
-                                  <Verified 
+                                  <VerifiedIcon 
                                     sx={{ 
                                       ml: 0.5, 
                                       fontSize: 16, 
@@ -805,7 +803,7 @@ export default function Home() {
                           size="large"
                           disabled={sorteando}
                           onClick={iniciarSorteio}
-                          startIcon={<EmojiEvents />}
+                          startIcon={<EmojiEventsIcon />}
                           sx={{ 
                             minWidth: 200, 
                             py: 1.5, 
@@ -835,7 +833,7 @@ export default function Home() {
                             alignItems: 'center'
                           }}
                         >
-                          <Timer color="secondary" sx={{ fontSize: 40, mb: 2 }} />
+                          <TimerIcon color="secondary" sx={{ fontSize: 40, mb: 2 }} />
                           
                           {/* Barra de progresso circular */}
                           <Box sx={{ position: 'relative', display: 'inline-flex', mb: 2 }}>
@@ -905,7 +903,7 @@ export default function Home() {
                         style={{ textAlign: 'center' }}
                       >
                         <Typography variant="h5" color="primary" gutterBottom>
-                          <Celebration sx={{ mr: 1, verticalAlign: 'middle' }} />
+                          <CelebrationIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                           {validacaoConcluida && ganhadorValidado 
                             ? "Parabéns ao Ganhador Confirmado!" 
                             : "Possível Ganhador!"}
@@ -1011,7 +1009,7 @@ export default function Home() {
                                 </Typography>
                                 
                                 {hasVerifiedBadge(ganhador) && (
-                                  <Verified 
+                                  <VerifiedIcon 
                                     sx={{ 
                                       ml: 1, 
                                       fontSize: 24, 
@@ -1032,7 +1030,7 @@ export default function Home() {
                               >
                                 <Chip 
                                   label={lojaInfo.nome} 
-                                  icon={<Instagram />} 
+                                  icon={<InstagramIcon />} 
                                   color="primary" 
                                   variant="outlined"
                                   size="small"
@@ -1055,7 +1053,7 @@ export default function Home() {
                                   variant="contained"
                                   color="primary"
                                   onClick={iniciarSorteio}
-                                  startIcon={<Refresh />}
+                                  startIcon={<RefreshIcon />}
                                   sx={{ minWidth: 200 }}
                                 >
                                   Sortear Novamente
@@ -1066,7 +1064,7 @@ export default function Home() {
                                     variant="contained"
                                     color="error"
                                     onClick={sortearNovamente}
-                                    startIcon={<Refresh />}
+                                    startIcon={<RefreshIcon />}
                                   >
                                     Sortear Outro Participante
                                   </Button>
@@ -1074,7 +1072,7 @@ export default function Home() {
                                     variant="outlined"
                                     color="primary"
                                     onClick={abrirValidacao}
-                                    startIcon={<Info />}
+                                    startIcon={<InfoIcon />}
                                   >
                                     Ver Detalhes
                                   </Button>
@@ -1084,7 +1082,7 @@ export default function Home() {
                                   variant="contained"
                                   color="primary"
                                   onClick={abrirValidacao}
-                                  startIcon={<Check />}
+                                  startIcon={<CheckIcon />}
                                   sx={{ minWidth: 200 }}
                                 >
                                   Verificar Requisitos

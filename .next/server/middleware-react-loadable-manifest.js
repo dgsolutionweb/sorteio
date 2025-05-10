@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"pages/index.js -> react-confetti":{"id":8583,"files":["static/chunks/583.491e01f2347a156b.js"]}}';
